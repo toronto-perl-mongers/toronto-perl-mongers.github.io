@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div class="posts">
+<h1>Upcoming Meetings</h1>
+  {{ $now := dateFormat "2006-01-02T15:04:05-0700" now }}
+  {{ range where (where .Site.Pages ".Params.meetingdate" "ge" $now) "Section" "meetings" }}
+    {{ partial "meeting_list_short.html" . }}
+  {{ end }}
+</div>
+{{ end }}

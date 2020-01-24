@@ -1,0 +1,62 @@
+title = "TPM - Toronto Perl Mongers"
+baseurl = "/"
+languageCode = "en-us"
+theme = "terminal"
+paginate = 10
+
+[taxonomies]
+  author = "authors"
+  tag = "tags"
+  category = "categories"
+  venue = "venues"
+  presenter = "presenters"
+
+
+[params]
+  mainSections = ["meetings"]
+  # dir name of your blog content (default is `content/posts`)
+  contentTypeName = "posts"
+  # ["orange", "blue", "red", "green", "pink"]
+  themeColor = "blue"
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 3
+  # show selector to switch language
+  showLanguageSelector = false
+  # set theme to full screen width
+  fullWidthTheme = false
+  # center theme with default width
+  centerTheme = false
+  # set a custom favicon (default is a `themeColor` square)
+  # favicon = "favicon.ico"
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    title = "TPM - Toronto Perl Mongers"
+    subtitle = ""
+    keywords = ""
+    copyright = ""
+    menuMore = "Show more"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+    oldMeetingDate = "January 2006"
+    newMeetingDate = "January 2, 2006 15:04"
+    navMeetingDate = "January 2006"
+
+    [languages.en.params.logo]
+      logoText = "TPM - Toronto Perl Mongers"
+      logoHomeLink = "/"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "meetings"
+        name = "Meetings"
+        url = "/meetings"
+      [[languages.en.menu.main]]
+        identifier = "talks"
+        name = "Talks"
+        url = "/talks"
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about"

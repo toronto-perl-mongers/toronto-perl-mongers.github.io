@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="posts">
+  <h1>
+    Meetings
+  </h1>
+  {{ range .Paginator.Pages }}
+  <div class="post on-list">
+    <h1 class="post-title">{{ partial "meeting_title.html" . }}</h1>
+    <div class="post-content">
+        {{ with .Params.summary }}
+        {{ . | markdownify }}
+        {{ else }}
+        {{ .Content | markdownify }}
+        {{ end }}
+        {{ partial "talk_list_short.md" . }}
+    </div>
+    <div>
+      <a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore }} →</a>
+    </div>
+  </div>
+  {{ end }}
+  {{ partial "pagination.html" . }}
+</div>
+{{ end }}

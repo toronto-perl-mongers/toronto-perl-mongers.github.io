@@ -1,0 +1,17 @@
+{{ $venue_url := printf "/venues/%s" (.Params.venue | urlize) }}
+{{ $venue := $.Site.GetPage $venue_url }}
+<div class="post on-list">
+  <h1 class="post-title">{{ partial "meeting_title.html" . }}</h1>
+  <div class="post-content">
+    {{ with .Params.summary }}
+    {{ . | markdownify }}
+    {{ else }}
+    {{ .Content | markdownify }}
+    {{ end }}
+    {{ partial "talk_list_short.md" . }}
+  </div>
+  <div>
+    <a class="read-more button"
+      href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore }} →</a>
+  </div>
+</div>

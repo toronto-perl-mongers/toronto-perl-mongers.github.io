@@ -1,0 +1,11 @@
+{{ $venue_url := printf "/venues/%s" (.Params.venue | urlize) }}
+{{ $venue := $.Site.GetPage $venue_url }}
+{{ with .Params.meetingdate }}
+{{   $t := (time .) }}
+<a href="{{ $.Page.Permalink }}">
+    {{ dateFormat (cond ($t.After now) $.Site.Params.newMeetingDate $.Site.Params.oldMeetingDate) $t }}
+</a>
+{{ end }}
+{{ with $venue.Params }}
+@ <a href="{{ $venue_url }}">{{ .name }}</a>
+{{ end }}

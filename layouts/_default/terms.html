@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="post">
+  <h1 class="post-title">
+      {{ .Title }}
+  </h1>
+
+  <ul>
+    {{ $data := .Data }}
+    {{ range $key, $value := .Data.Terms }}
+      <li><a href="/{{ $data.Plural }}/{{ $key | urlize }}">{{ $key }}</a> {{ len $value }}</li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

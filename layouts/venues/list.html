@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="posts">
+  {{ $paginator := .Paginate (where .RegularPages "Type" "venues") }}
+
+  {{ range $paginator.Pages }}
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="{{ .Permalink }}">{{ .Params.name | markdownify }}</a></h1>
+    <div class="post-meta">
+    </div>
+
+    <div class="post-content">
+      {{ with .Params }}
+      <address>
+        {{ .address }}<br />
+        {{ .city }}<br />
+        {{ .province }}<br />
+        {{ .postcode }}<br />
+      </address>
+      {{ end }}
+      </ul>
+
+    </div>
+    <div>
+      <a class="read-more button"
+        href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore }} →</a>
+    </div>
+  </div>
+  {{ end }}
+  {{ partial "pagination.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,7 @@
+<a href="{{ .Permalink }}">{{ .Title | markdownify }} ::
+  {{ range .Params.presenters }}
+    {{ $presenter_url := printf "/presenters/%s" (. | urlize) }}
+    {{ $presenter := $.Site.GetPage $presenter_url }}
+    <a href="{{ $presenter_url }}">{{ $presenter.Params.name }}</a>
+  {{ end }}
+</a>
